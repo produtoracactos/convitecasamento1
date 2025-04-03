@@ -23,14 +23,15 @@
     </style>
 </head>
 <body>
-    <video id="videoPlayer" autoplay muted playsinline controlslist="nodownload">
+    <video id="videoPlayer" autoplay muted playsinline>
         <source src="https://res.cloudinary.com/dbwp1xy32/video/upload/v1743641487/04023_wi90ix.mp4" type="video/mp4">
         Seu navegador não suporta a reprodução de vídeos.
     </video>
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let video = document.getElementById("videoPlayer");
-            video.muted = false; // Ativar o som manualmente após autoplay
+            video.muted = false; // Ativar o som após o autoplay
             video.play().catch(error => console.log("Autoplay bloqueado:", error));
         });
     </script>
