@@ -23,15 +23,15 @@
         }
         #unmuteButton {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 10px 20px;
-            background-color: white;
+            bottom: 10px;
+            right: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
             border: none;
+            border-radius: 50%;
             font-size: 18px;
             cursor: pointer;
-            display: none;
+            display: block;
         }
     </style>
 </head>
@@ -40,22 +40,20 @@
         <source src="https://res.cloudinary.com/dbwp1xy32/video/upload/v1743641487/04023_wi90ix.mp4" type="video/mp4">
         Seu navegador não suporta a reprodução de vídeos.
     </video>
-    <button id="unmuteButton">Ativar Som</button>
+    <button id="unmuteButton">🔊</button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let video = document.getElementById("videoPlayer");
             let button = document.getElementById("unmuteButton");
-            
+
             video.play().catch(error => {
                 console.error("Erro ao tentar reproduzir o vídeo:", error);
-                button.style.display = "block"; // Mostra o botão caso o autoplay falhe
             });
 
             button.addEventListener("click", function () {
                 video.muted = false;
-                video.play();
-                button.style.display = "none";
+                button.style.display = "none"; // Esconde o botão após ativar o som
             });
         });
     </script>
