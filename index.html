@@ -28,5 +28,14 @@
         <source src="https://res.cloudinary.com/dbwp1xy32/video/upload/v1743641487/04023_wi90ix.mp4" type="video/mp4">
         Seu navegador não suporta a reprodução de vídeos.
     </video>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let video = document.getElementById("videoPlayer");
+            video.play().catch(error => {
+                console.error("Erro ao tentar reproduzir o vídeo:", error);
+            });
+        });
+    </script>
 </body>
 </html>
