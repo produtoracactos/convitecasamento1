@@ -21,20 +21,41 @@
             height: 100vh;
             object-fit: contain;
         }
+        #unmuteButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            background-color: white;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <video id="videoPlayer" autoplay playsinline loop>
+    <video id="videoPlayer" autoplay playsinline loop muted>
         <source src="https://res.cloudinary.com/dbwp1xy32/video/upload/v1743641487/04023_wi90ix.mp4" type="video/mp4">
         Seu navegador não suporta a reprodução de vídeos.
     </video>
+    <button id="unmuteButton">Ativar Som</button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             let video = document.getElementById("videoPlayer");
-            video.muted = false; // Garante que o áudio não esteja mudo
+            let button = document.getElementById("unmuteButton");
+            
             video.play().catch(error => {
                 console.error("Erro ao tentar reproduzir o vídeo:", error);
+                button.style.display = "block"; // Mostra o botão caso o autoplay falhe
+            });
+
+            button.addEventListener("click", function () {
+                video.muted = false;
+                video.play();
+                button.style.display = "none";
             });
         });
     </script>
